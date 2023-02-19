@@ -1,18 +1,16 @@
 package org.example;
 
 
-import org.example.annotation.Autowired;
-import org.example.core.SpringContext;
-import org.example.entity.UserEntity;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class EStoreMain {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            UserService userService = SpringContext.getBean(UserServiceMongoImpl.class);
-            System.out.println("userService = " + userService);
-            userService.save(new UserEntity());
-            System.out.println("Hello world!");
+        AnnotationConfigApplicationContext context1 = new AnnotationConfigApplicationContext("org.example");
+        for (int i = 0; i < 5; i++) {
+            UserService bean = context1.getBean("mongo", UserService.class);
+            System.out.println("bean1 = " + bean);
+            bean.save(null);
         }
     }
 }

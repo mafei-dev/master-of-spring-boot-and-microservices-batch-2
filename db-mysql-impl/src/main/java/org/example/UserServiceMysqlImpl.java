@@ -1,9 +1,9 @@
 package org.example;
 
-import org.example.annotation.Bean;
 import org.example.entity.UserEntity;
+import org.springframework.stereotype.Component;
 
-@Bean
+@Component(value = "mysql")
 public class UserServiceMysqlImpl implements UserService {
     @Override
     public void save(UserEntity user) {
