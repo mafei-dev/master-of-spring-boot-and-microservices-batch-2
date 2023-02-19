@@ -7,6 +7,7 @@ import org.example.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,8 @@ import javax.annotation.PreDestroy;
 public class UserServiceMongoImpl implements UserService {
 
     @Autowired
-    @Qualifier("mysqlDao")
+    @Qualifier("mongoDao")
+    @Lazy
     private UserDao userDao;
 
 
