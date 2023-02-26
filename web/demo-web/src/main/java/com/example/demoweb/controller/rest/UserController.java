@@ -1,23 +1,33 @@
 package com.example.demoweb.controller.rest;
 
 import com.example.demoweb.db.DB;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 
 @RestController
 @RequestMapping(path = "/user")
 //REST
 public class UserController {
 
-    //user/{username}
-//    @RequestMapping(path = "/{username}", method = {RequestMethod.GET})
+
     @GetMapping(path = "/{username}")
-    public DB.User getUser(@PathVariable("username") String username) {
+    public ResponseEntity<?> getUser(@PathVariable("username") String username) {
         //process
-        return DB.getUser(username);
+        try {
+            return ResponseEntity.ok(DB.getUser(username));
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(
+                            Collections.singletonMap("msg", e.getMessage())
+                    );
+        }
     }
 
 
-    //    @RequestMapping(method = RequestMethod.POST)
     @PostMapping
     public void addUser(@RequestBody DB.User user) {
         System.out.println("user = " + user);
@@ -26,15 +36,12 @@ public class UserController {
     }
 
 
-//    @RequestMapping(method = RequestMethod.PUT)
     @PutMapping
     public void updateUser(@RequestBody DB.User oldUser) {
         //process
         DB.updateUser(oldUser);
     }
 
-
-//    @RequestMapping(method = RequestMethod.DELETE)
     @DeleteMapping
     public void deleteUser(
             @RequestParam("username") String username,
