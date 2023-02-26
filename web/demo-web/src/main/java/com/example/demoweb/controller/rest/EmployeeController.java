@@ -1,4 +1,4 @@
-package com.example.demoweb;
+package com.example.demoweb.controller.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

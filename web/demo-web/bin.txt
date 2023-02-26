@@ -1,0 +1,14 @@
+{
+
+        /*
+        {
+            "username": "abc",
+            "age": 120,
+            "gender" : 1
+        }
+        */
+        DB.User user=new DB.User();
+        user.setUsername("abc");
+        user.setAge(120);
+//        user.setGender
+    }
