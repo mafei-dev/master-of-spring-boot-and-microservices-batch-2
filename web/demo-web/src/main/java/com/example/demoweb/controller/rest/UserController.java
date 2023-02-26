@@ -4,8 +4,6 @@ import com.example.demoweb.db.DB;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-
 @Controller
 @RequestMapping(path = "/user")
 public class UserController {
@@ -19,7 +17,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody//application/json; charset=utf-8 | REST
     public void addUser(@RequestBody DB.User user) {
         System.out.println("user = " + user);
@@ -27,7 +25,7 @@ public class UserController {
         DB.addNewUser(user);
     }
 
-    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseBody//application/json; charset=utf-8 | REST
     public void updateUser(@RequestBody DB.User oldUser) {
         //process
@@ -35,7 +33,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.DELETE)
     @ResponseBody//application/json; charset=utf-8 | REST
     public void deleteUser(
             @RequestParam("username") String username,
@@ -45,6 +43,4 @@ public class UserController {
         System.out.println("username = " + username + ", isActive = " + isActive);
         DB.deleteUser(username);
     }
-
-
 }

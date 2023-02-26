@@ -13,3 +13,9 @@ op-1 > localhost:8080/user/delete/mafei (PathVariable)
 op-2 > localhost:8080/user/delete?username=mafei&isActive=true
 
 
+GET example-2 : localhost:8080/user/{username} | {username : mafei, age : 12}
+POST example-2 : localhost:8080/user/{username : mafei, age : 12} | RESPONSE_CODE
+PUT example-2 : localhost:8080/user/ | {username : mafei, age : 15} | RESPONSE_CODE
+DELETE example-2 : localhost:8080/user/{username} | RESPONSE_CODE
+
+
