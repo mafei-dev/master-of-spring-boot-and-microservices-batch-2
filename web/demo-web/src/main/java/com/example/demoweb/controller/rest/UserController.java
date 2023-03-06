@@ -1,54 +1,32 @@
 package com.example.demoweb.controller.rest;
 
-import com.example.demoweb.db.DB;
+import com.example.demoweb.dto.NewUserDetailDTO;
+import com.example.demoweb.exception.EmailNotFoundException;
+import com.example.demoweb.service.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(path = "/user")
 //REST
+@AllArgsConstructor
 public class UserController {
 
-
-    @GetMapping(path = "/{username}")
-    public ResponseEntity<?> getUser(@PathVariable("username") String username) {
-        //process
-        try {
-            return ResponseEntity.ok(DB.getUser(username));
-        } catch (Exception e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .body(
-                            Collections.singletonMap("msg", e.getMessage())
-                    );
-        }
-    }
+    private final UserService userService;
 
 
     @PostMapping
-    public void addUser(@RequestBody DB.User user) {
-        System.out.println("user = " + user);
-        //process
-        DB.addNewUser(user);
+    public void addUser(HttpEntity<NewUserDetailDTO> entity) throws EmailNotFoundException {
+        this.userService.saveNewUser(Objects.requireNonNull(entity.getBody()));
     }
 
-
-    @PutMapping
-    public void updateUser(@RequestBody DB.User oldUser) {
-        //process
-        DB.updateUser(oldUser);
-    }
-
-    @DeleteMapping
-    public void deleteUser(
-            @RequestParam("username") String username,
-            @RequestParam(value = "isActive") Boolean isActive
-    ) {
-        //process
-        System.out.println("username = " + username + ", isActive = " + isActive);
-        DB.deleteUser(username);
-    }
 }
