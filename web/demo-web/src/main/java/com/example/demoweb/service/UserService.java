@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,12 +31,13 @@ public class UserService {
 
     public void saveNewUser(NewUserDetailDTO userDetail) throws EmailNotFoundException {
 
-        if (userDetail.getContactList().size() < 3) {
+        /*if (userDetail.getContactList().size() < 3) {
             throw new RuntimeException("the contact list is less than 3");
-        }
+        }*/
         //business logic
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
+
 
         this.userRepository.saveUser(
                 UserEntity.builder()
@@ -60,6 +62,8 @@ public class UserService {
                 userContactEntityList,
                 userId
         );
+
+
         //03-save the user's image
         this.imageProcesses.saveImage(userDetail.getUserImg());
         //04-sent an email to the saved user

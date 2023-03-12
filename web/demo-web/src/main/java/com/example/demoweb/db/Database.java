@@ -11,8 +11,8 @@ import java.util.Map;
 public class Database {
 
     //user_table
-    public static final List<UserEntity> userTable = new ArrayList<>();
+//    public static final List<UserEntity> userTable = new ArrayList<>();
     //user_contact_table
-    public static final Map<String/*user_id*/, List<UserContactEntity>> userContactTable = new HashMap<>();
+//    public static final Map<String/*user_id*/, List<UserContactEntity>> userContactTable = new HashMap<>();
 
 }
