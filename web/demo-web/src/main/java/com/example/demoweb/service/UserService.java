@@ -71,29 +71,31 @@ public class UserService {
                     userId
             );
 
-        } catch (SQLException e) {
+
+            //03-save the user's image
+            this.imageProcesses.saveImage(userDetail.getUserImg());
+            //04-sent an email to the saved user
+            Optional<NewUserDetailDTO.UserContact> email = userDetail
+                    .getContactList()
+                    .stream()
+                    .filter(userContact ->
+                            userContact.getKey().equalsIgnoreCase("email")
+                    )
+                    .findFirst();
+
+            if (email.isPresent()) {
+                this.mailSender.send(email.get().getValue());
+            } else {
+                throw new EmailNotFoundException(
+                        "your email has not been provided.",
+                        userDetail.getUsername()
+                );
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        //03-save the user's image
-        this.imageProcesses.saveImage(userDetail.getUserImg());
-        //04-sent an email to the saved user
-        Optional<NewUserDetailDTO.UserContact> email = userDetail
-                .getContactList()
-                .stream()
-                .filter(userContact ->
-                        userContact.getKey().equalsIgnoreCase("email")
-                )
-                .findFirst();
-
-        if (email.isPresent()) {
-            this.mailSender.send(email.get().getValue());
-        } else {
-            throw new EmailNotFoundException(
-                    "your email has not been provided.",
-                    userDetail.getUsername()
-            );
-        }
     }
 }
