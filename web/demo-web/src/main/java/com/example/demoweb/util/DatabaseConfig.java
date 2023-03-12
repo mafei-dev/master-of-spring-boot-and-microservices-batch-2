@@ -3,7 +3,6 @@ package com.example.demoweb.util;
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 import javax.sql.DataSource;
-
 public class DatabaseConfig {
 
     private DatabaseConfig() {

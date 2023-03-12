@@ -6,12 +6,15 @@ import com.example.demoweb.entity.UserEntity;
 import com.example.demoweb.exception.EmailNotFoundException;
 import com.example.demoweb.repository.UserContactRepository;
 import com.example.demoweb.repository.UserRepository;
+import com.example.demoweb.util.DatabaseConfig;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class UserService {
 
     public void saveNewUser(NewUserDetailDTO userDetail) throws EmailNotFoundException {
 
+        DataSource dataSource = DatabaseConfig.getDataSource();
         /*if (userDetail.getContactList().size() < 3) {
             throw new RuntimeException("the contact list is less than 3");
         }*/
@@ -38,30 +42,38 @@ public class UserService {
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
 
+        try (Connection connection = dataSource.getConnection()) {
+            connection.setAutoCommit(false);
+            connection.setReadOnly(false);
+            this.userRepository.saveUser(
+                    connection,
+                    UserEntity.builder()
+                            .pk(userId)
+                            .username(userDetail.getUsername())
+                            .age(userDetail.getAge())
+                            .build()
+            );
+            List<UserContactEntity> userContactEntityList = new ArrayList<>();
+            userDetail.getContactList().forEach(userContact -> {
+                UserContactEntity entity = UserContactEntity.builder()
+                        .pk(UUID.randomUUID().toString())
+                        .key(userContact.getKey())
+                        .value(userContact.getValue())
+                        .userId(userId)
+                        .build();
+                userContactEntityList.add(entity);
+            });
 
-        this.userRepository.saveUser(
-                UserEntity.builder()
-                        .pk(userId)
-                        .username(userDetail.getUsername())
-                        .age(userDetail.getAge())
-                        .build()
-        );
-        List<UserContactEntity> userContactEntityList = new ArrayList<>();
-        userDetail.getContactList().forEach(userContact -> {
-            UserContactEntity entity = UserContactEntity.builder()
-                    .pk(UUID.randomUUID().toString())
-                    .key(userContact.getKey())
-                    .value(userContact.getValue())
-                    .userId(userId)
-                    .build();
-            userContactEntityList.add(entity);
-        });
+            //02-save new user contacts [user-contact-table: UserContactRepository].
+            this.userContactRepository.saveUserContacts(
+                    connection,
+                    userContactEntityList,
+                    userId
+            );
 
-        //02-save new user contacts [user-contact-table: UserContactRepository].
-        this.userContactRepository.saveUserContacts(
-                userContactEntityList,
-                userId
-        );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
         //03-save the user's image
