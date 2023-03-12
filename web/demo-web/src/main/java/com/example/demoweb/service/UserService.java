@@ -40,23 +40,13 @@ public class UserService {
     @Autowired
     private NotificationService notificationService;
 
-    @Autowired
-    private DataSource dataSource;
 
     @Autowired
-    @Qualifier("hikariDataSource")
     private DataSource hikaruDataSource;
 
-    public void addUserWithJdbcDatasource(NewUserDetailDTO userDetail) {
-        this.saveNewUser(dataSource, userDetail);
-    }
-
-    public void addUserWithHikariDatasource(NewUserDetailDTO userDetail) {
-        this.saveNewUser(hikaruDataSource, userDetail);
-    }
 
     public void saveNewUserDefault(NewUserDetailDTO userDetail) {
-        this.saveNewUser(dataSource, userDetail);
+        this.saveNewUser(hikaruDataSource, userDetail);
     }
 
 
@@ -82,6 +72,46 @@ public class UserService {
                             .age(userDetail.getAge())
                             .build()
             );
+
+            List<UserContactEntity> userContactEntityList = new ArrayList<>();
+            userDetail.getContactList().forEach(userContact -> {
+                UserContactEntity entity = UserContactEntity.builder()
+                        .pk(UUID.randomUUID().toString())
+                        .key(userContact.getKey())
+                        .value(userContact.getValue())
+                        .userId(userId)
+                        .build();
+                userContactEntityList.add(entity);
+            });
+
+            //02-save new user contacts [user-contact-table: UserContactRepository].
+            this.userContactRepository.saveUserContacts(
+                    connection,
+                    userContactEntityList,
+                    userId
+            );
+
+
+            //03-save the user's image
+            this.imageProcesses.saveImage(userDetail.getUserImg());
+            //04-sent an email to the saved user
+            Optional<NewUserDetailDTO.UserContact> email = userDetail
+                    .getContactList()
+                    .stream()
+                    .filter(userContact ->
+                            userContact.getKey().equalsIgnoreCase("email")
+                    )
+                    .findFirst();
+
+            if (email.isPresent()) {
+                this.mailSender.send(email.get().getValue());
+            } else {
+                throw new EmailNotFoundException(
+                        "your email has not been provided.",
+                        userDetail.getUsername()
+                );
+            }
+            //**commit the data into the database after all are done.
             connection.commit();
         } catch (Exception e) {
             e.printStackTrace();

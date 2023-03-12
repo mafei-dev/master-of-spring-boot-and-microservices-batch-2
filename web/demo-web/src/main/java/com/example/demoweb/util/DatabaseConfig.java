@@ -13,7 +13,6 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
     @Bean(name = "dataSource")
-    @Primary
     public DataSource dataSource() {
         MysqlDataSource mysqlDataSource = new MysqlDataSource();
         mysqlDataSource.setUrl("jdbc:mysql://localhost:3306/batch-2-user-db?createDatabaseIfNotExist=true");
@@ -25,6 +24,7 @@ public class DatabaseConfig {
     }
 
     @Bean(name = "hikariDataSource")
+    @Primary
     public DataSource hikariDataSource(@Qualifier("dataSource") DataSource dataSource) {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDataSource(dataSource);
