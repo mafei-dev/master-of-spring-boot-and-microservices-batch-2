@@ -5,14 +5,10 @@ import com.example.demoweb.exception.EmailNotFoundException;
 import com.example.demoweb.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 @RestController

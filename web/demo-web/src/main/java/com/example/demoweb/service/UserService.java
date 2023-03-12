@@ -4,18 +4,18 @@ import com.example.demoweb.dto.NewUserDetailDTO;
 import com.example.demoweb.entity.UserContactEntity;
 import com.example.demoweb.entity.UserEntity;
 import com.example.demoweb.exception.EmailNotFoundException;
+import com.example.demoweb.lib.NotificationService;
+import com.example.demoweb.lib.impl.NotificationServiceImpl;
 import com.example.demoweb.repository.UserContactRepository;
 import com.example.demoweb.repository.UserRepository;
 import com.example.demoweb.util.DatabaseConfig;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -31,10 +31,13 @@ public class UserService {
 
     private final MailSender mailSender;
     private final ImageProcesses imageProcesses;
+    private final NotificationService notificationService;
+    private final DataSource dataSource;
 
-    public void saveNewUser(NewUserDetailDTO userDetail) throws EmailNotFoundException {
+    public void saveNewUser(NewUserDetailDTO userDetail) {
+        System.out.println("notificationService = " + notificationService);
+        System.out.println("dataSource = " + dataSource);
 
-        DataSource dataSource = DatabaseConfig.getDataSource();
         /*if (userDetail.getContactList().size() < 3) {
             throw new RuntimeException("the contact list is less than 3");
         }*/
@@ -94,8 +97,8 @@ public class UserService {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            notificationService.send("success");
         }
-
-
     }
 }
