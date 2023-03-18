@@ -18,9 +18,10 @@ public class UserContactEntity {
     @Id
     @Column(name = "pk")
     private String userContactId;
-    @Column(name = "key")
+    @Column(name = "contact_key")
     private String contactKey;
-    private String value;
+    @Column(name = "contact_value")
+    private String contactValue;
     @Column(name = "user_id")
     private String userId;
 }

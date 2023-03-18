@@ -9,11 +9,12 @@ import com.example.demoweb.repository.UserContactRepository;
 import com.example.demoweb.repository.UserRepository;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,19 +36,17 @@ public class UserService {
     @Autowired
     private NotificationService notificationService;
 
-
     @Autowired
-    private DataSource hikaruDataSource;
+    private SessionFactory sessionFactory;
 
 
     public void saveNewUserDefault(NewUserDetailDTO userDetail) {
-        this.saveNewUser(hikaruDataSource, userDetail);
+        this.saveNewUser(userDetail);
     }
 
 
-    private void saveNewUser(DataSource dataSource, NewUserDetailDTO userDetail) {
+    private void saveNewUser(NewUserDetailDTO userDetail) {
         System.out.println("notificationService = " + notificationService);
-        System.out.println("dataSource = " + dataSource);
 
         /*if (userDetail.getContactList().size() < 3) {
             throw new RuntimeException("the contact list is less than 3");
@@ -55,12 +54,12 @@ public class UserService {
         //business logic
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
+        try (Session currentSession = sessionFactory.openSession()) {
 
-        try (Connection connection = dataSource.getConnection()) {
-            connection.setAutoCommit(false);
-            connection.setReadOnly(false);
+            Transaction transaction = currentSession.beginTransaction();
+
             this.userRepository.saveUser(
-                    connection,
+                    currentSession,
                     UserEntity.builder()
                             .userId(userId)
                             .username(userDetail.getUsername())
@@ -73,7 +72,7 @@ public class UserService {
                 UserContactEntity entity = UserContactEntity.builder()
                         .userContactId(UUID.randomUUID().toString())
                         .contactKey(userContact.getKey())
-                        .value(userContact.getValue())
+                        .contactValue(userContact.getValue())
                         .userId(userId)
                         .build();
                 userContactEntityList.add(entity);
@@ -81,9 +80,8 @@ public class UserService {
 
             //02-save new user contacts [user-contact-table: UserContactRepository].
             this.userContactRepository.saveUserContacts(
-                    connection,
-                    userContactEntityList,
-                    userId
+                    currentSession,
+                    userContactEntityList
             );
 
 
@@ -107,7 +105,7 @@ public class UserService {
                 );
             }
             //**commit the data into the database after all are done.
-            connection.commit();
+            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
