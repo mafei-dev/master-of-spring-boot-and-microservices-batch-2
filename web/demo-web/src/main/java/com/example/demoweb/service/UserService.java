@@ -9,6 +9,8 @@ import com.example.demoweb.repository.UserContactRepository;
 import com.example.demoweb.repository.UserRepository;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,89 +24,72 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Slf4j
+@AllArgsConstructor
 public class UserService {
 
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserContactRepository userContactRepository;
+    private final UserRepository userRepository;
+    private final UserContactRepository userContactRepository;
 
-    @Autowired
-    private MailSender mailSender;
-    @Autowired
-    private ImageProcesses imageProcesses;
-    @Autowired
-    private NotificationService notificationService;
+    private final MailSender mailSender;
+    private final ImageProcesses imageProcesses;
+    private final NotificationService notificationService;
 
-    @Autowired
-    private SessionFactory sessionFactory;
 
     @Transactional
     public void saveNewUser(NewUserDetailDTO userDetail) {
-        System.out.println(Thread.currentThread().getName());
-        System.out.println("notificationService = " + notificationService);
+        log.info("thread:{}", Thread.currentThread().getName());
 
-        /*if (userDetail.getContactList().size() < 3) {
-            throw new RuntimeException("the contact list is less than 3");
-        }*/
+        System.out.println("notificationService = " + notificationService);
         //business logic
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
-        try (Session currentSession = sessionFactory.getCurrentSession()) {
 
-            this.userRepository.saveUser(
-                    currentSession,
-                    UserEntity.builder()
-                            .userId(userId)
-                            .username(userDetail.getUsername())
-                            .userAge(userDetail.getAge())
-                            .build()
-            );
 
-            List<UserContactEntity> userContactEntityList = new ArrayList<>();
-            userDetail.getContactList().forEach(userContact -> {
-                UserContactEntity entity = UserContactEntity.builder()
-                        .userContactId(UUID.randomUUID().toString())
-                        .contactKey(userContact.getKey())
-                        .contactValue(userContact.getValue())
+        this.userRepository.saveUser(
+                UserEntity.builder()
                         .userId(userId)
-                        .build();
-                userContactEntityList.add(entity);
-            });
+                        .username(userDetail.getUsername())
+                        .userAge(userDetail.getAge())
+                        .build()
+        );
 
-            //02-save new user contacts [user-contact-table: UserContactRepository].
-            this.userContactRepository.saveUserContacts(
-                    currentSession,
-                    userContactEntityList
+        List<UserContactEntity> userContactEntityList = new ArrayList<>();
+        userDetail.getContactList().forEach(userContact -> {
+            UserContactEntity entity = UserContactEntity.builder()
+                    .userContactId(UUID.randomUUID().toString())
+                    .contactKey(userContact.getKey())
+                    .contactValue(userContact.getValue())
+                    .userId(userId)
+                    .build();
+            userContactEntityList.add(entity);
+        });
+
+        //02-save new user contacts [user-contact-table: UserContactRepository].
+        this.userContactRepository.saveUserContacts(
+                userContactEntityList
+        );
+
+
+        //03-save the user's image
+        this.imageProcesses.saveImage(userDetail.getUserImg());
+        //04-sent an email to the saved user
+        Optional<NewUserDetailDTO.UserContact> email = userDetail
+                .getContactList()
+                .stream()
+                .filter(userContact ->
+                        userContact.getKey().equalsIgnoreCase("email")
+                )
+                .findFirst();
+
+        if (email.isPresent()) {
+            this.mailSender.send(email.get().getValue());
+        } else {
+            throw new EmailNotFoundException(
+                    "your email has not been provided.",
+                    userDetail.getUsername()
             );
-
-            if (true) {
-                throw new RuntimeException("RuntimeException");
-            }
-
-
-            //03-save the user's image
-            this.imageProcesses.saveImage(userDetail.getUserImg());
-            //04-sent an email to the saved user
-            Optional<NewUserDetailDTO.UserContact> email = userDetail
-                    .getContactList()
-                    .stream()
-                    .filter(userContact ->
-                            userContact.getKey().equalsIgnoreCase("email")
-                    )
-                    .findFirst();
-
-            if (email.isPresent()) {
-                this.mailSender.send(email.get().getValue());
-            } else {
-                throw new EmailNotFoundException(
-                        "your email has not been provided.",
-                        userDetail.getUsername()
-                );
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
