@@ -5,16 +5,11 @@ import com.example.demoweb.entity.UserContactEntity;
 import com.example.demoweb.entity.UserEntity;
 import com.example.demoweb.exception.EmailNotFoundException;
 import com.example.demoweb.lib.NotificationService;
-import com.example.demoweb.lib.impl.NotificationServiceImpl;
 import com.example.demoweb.repository.UserContactRepository;
 import com.example.demoweb.repository.UserRepository;
-import com.example.demoweb.util.DatabaseConfig;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
-import com.zaxxer.hikari.HikariDataSource;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -67,17 +62,17 @@ public class UserService {
             this.userRepository.saveUser(
                     connection,
                     UserEntity.builder()
-                            .pk(userId)
+                            .userId(userId)
                             .username(userDetail.getUsername())
-                            .age(userDetail.getAge())
+                            .userAge(userDetail.getAge())
                             .build()
             );
 
             List<UserContactEntity> userContactEntityList = new ArrayList<>();
             userDetail.getContactList().forEach(userContact -> {
                 UserContactEntity entity = UserContactEntity.builder()
-                        .pk(UUID.randomUUID().toString())
-                        .key(userContact.getKey())
+                        .userContactId(UUID.randomUUID().toString())
+                        .contactKey(userContact.getKey())
                         .value(userContact.getValue())
                         .userId(userId)
                         .build();

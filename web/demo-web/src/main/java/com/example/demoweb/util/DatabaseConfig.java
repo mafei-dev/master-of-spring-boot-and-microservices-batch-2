@@ -1,5 +1,6 @@
 package com.example.demoweb.util;
 
+import com.example.demoweb.entity.UserContactEntity;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -7,8 +8,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 public class DatabaseConfig {
@@ -32,4 +35,18 @@ public class DatabaseConfig {
         hikariConfig.setPoolName("user-service-pool");
         return new HikariDataSource(hikariConfig);
     }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
+        LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
+        factoryBean.setDataSource(dataSource);
+        factoryBean.setPackagesToScan("com.example.demoweb.entity");
+        Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.show_sql", "true");
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        factoryBean.setHibernateProperties(hibernateProperties);
+        return factoryBean;
+    }
+
 }
