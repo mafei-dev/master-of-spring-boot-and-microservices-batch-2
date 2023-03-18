@@ -14,6 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +40,9 @@ public class UserService {
     @Autowired
     private SessionFactory sessionFactory;
 
-
-    public void saveNewUserDefault(NewUserDetailDTO userDetail) {
-        this.saveNewUser(userDetail);
-    }
-
-
-    private void saveNewUser(NewUserDetailDTO userDetail) {
+    @Transactional
+    public void saveNewUser(NewUserDetailDTO userDetail) {
+        System.out.println(Thread.currentThread().getName());
         System.out.println("notificationService = " + notificationService);
 
         /*if (userDetail.getContactList().size() < 3) {
@@ -54,9 +51,7 @@ public class UserService {
         //business logic
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
-        try (Session currentSession = sessionFactory.openSession()) {
-
-            Transaction transaction = currentSession.beginTransaction();
+        try (Session currentSession = sessionFactory.getCurrentSession()) {
 
             this.userRepository.saveUser(
                     currentSession,
@@ -84,6 +79,10 @@ public class UserService {
                     userContactEntityList
             );
 
+            if (true) {
+                throw new RuntimeException("RuntimeException");
+            }
+
 
             //03-save the user's image
             this.imageProcesses.saveImage(userDetail.getUserImg());
@@ -104,8 +103,6 @@ public class UserService {
                         userDetail.getUsername()
                 );
             }
-            //**commit the data into the database after all are done.
-            transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
