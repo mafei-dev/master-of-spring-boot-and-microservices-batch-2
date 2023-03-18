@@ -21,7 +21,7 @@ public class UserController {
 
 
     @PostMapping
-    public void addUser(HttpEntity<NewUserDetailDTO> entity) {
+    public void addUser(HttpEntity<NewUserDetailDTO> entity) throws EmailNotFoundException {
         this.userService.saveNewUser(Objects.requireNonNull(entity.getBody()));
     }
 

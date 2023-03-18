@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,8 +38,8 @@ public class UserService {
     private final NotificationService notificationService;
 
 
-    @Transactional
-    public void saveNewUser(NewUserDetailDTO userDetail) {
+    @Transactional(rollbackFor = {EmailNotFoundException.class})
+    public void saveNewUser(NewUserDetailDTO userDetail) throws EmailNotFoundException {
         log.info("thread:{}", Thread.currentThread().getName());
 
         System.out.println("notificationService = " + notificationService);

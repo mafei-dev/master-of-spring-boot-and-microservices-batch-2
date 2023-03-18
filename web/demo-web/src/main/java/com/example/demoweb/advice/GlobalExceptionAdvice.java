@@ -1,6 +1,7 @@
 package com.example.demoweb.advice;
 
 import com.example.demoweb.exception.EmailNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.NullValueInNestedPathException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +12,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionAdvice {
 
     //EmailNotFoundException
     @ExceptionHandler({EmailNotFoundException.class})
     public ResponseEntity<Map<String, Object>> handleEmailNotFoundException(EmailNotFoundException exception) {
-        System.out.println("ex: " + exception.getMessage());
-        System.out.println("ex:username: " + exception.getUsername());
-        System.out.println("send the error to the bugs collecting service.");
+        log.error(exception.getMessage());
+        log.error("username: {}", exception.getUsername());
+        log.info("send the error to the bugs collecting service.");
         Map<String, Object> errorResponse = new HashMap<>();
         errorResponse.put("msg", exception.getMessage());
         errorResponse.put("username", exception.getUsername());
@@ -27,9 +29,9 @@ public class GlobalExceptionAdvice {
                 .body(errorResponse);
     }
 
-    @ExceptionHandler({Exception.class,RuntimeException.class})
+    @ExceptionHandler({Exception.class, RuntimeException.class})
     public ResponseEntity<Map<String, Object>> handleException(Exception exception) {
-        System.out.println("ex: " + exception.getMessage());
+        log.error( exception.getMessage());
         System.out.println("send the error to the bugs collecting service.");
         Map<String, Object> errorResponse = new HashMap<>();
         errorResponse.put("msg", exception.getMessage());

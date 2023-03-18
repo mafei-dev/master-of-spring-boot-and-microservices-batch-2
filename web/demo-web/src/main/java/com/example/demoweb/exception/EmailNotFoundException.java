@@ -3,7 +3,7 @@ package com.example.demoweb.exception;
 import lombok.Getter;
 
 @Getter
-public class EmailNotFoundException extends RuntimeException {
+public class EmailNotFoundException extends Exception {
     private final String username;
 
     public EmailNotFoundException(String message, String username) {
