@@ -1,23 +1,30 @@
 package com.example.demoweb.repository;
 
 import com.example.demoweb.entity.UserEntity;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
-@AllArgsConstructor
-@Slf4j
-public class UserRepository {
+public interface UserRepository extends CrudRepository<UserEntity, String> {
 
-    private final SessionFactory sessionFactory;
+    //select * from user where username = ?;
+    Optional<UserEntity> findByUsername(String username);
 
-    public void saveUser(UserEntity user) {
-        Session currentSession = sessionFactory.getCurrentSession();
-        log.info("currentSession:{},thread:{}", currentSession, Thread.currentThread().getName());
-        currentSession.save(user);
-    }
+    //select * from user where username = ?;
+    @Query("select myUser from user myUser where myUser.username = :username")
+    Optional<UserEntity> findByUsernameByQuery(@Param("username") String username);
+
+    List<UserEntity> findByUsernameContaining(String username);
+
+
+    @Query("update user u set u.userAge = ?1 where u.username = ?2")
+    @Modifying
+    void updateUser(int newUserAge, String username);
+
 }

@@ -11,18 +11,11 @@ import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -47,8 +40,11 @@ public class UserService {
         //01-save the new user [user-table: UserRepository].
         String userId = UUID.randomUUID().toString();
 
-
-        this.userRepository.saveUser(
+        this.userRepository.findByUsernameContaining(userDetail.getUsername());
+      /*  if (user.isPresent()) {
+            throw new RuntimeException("the user already exist.");
+        }*/
+        this.userRepository.save(
                 UserEntity.builder()
                         .userId(userId)
                         .username(userDetail.getUsername())
@@ -68,9 +64,7 @@ public class UserService {
         });
 
         //02-save new user contacts [user-contact-table: UserContactRepository].
-        this.userContactRepository.saveUserContacts(
-                userContactEntityList
-        );
+        this.userContactRepository.saveAll(userContactEntityList);
 
 
         //03-save the user's image
@@ -92,5 +86,37 @@ public class UserService {
                     userDetail.getUsername()
             );
         }
+    }
+
+    public List<Map<String, Object>> getUsers(String usernamePrefix) {
+        return this.userRepository.findByUsernameContaining(usernamePrefix)
+                .stream()
+                .map(user -> {
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("username", user.getUsername());
+                    data.put("userId", user.getUserId());
+                    data.put("age", user.getUserAge());
+                    return data;
+                })
+                .collect(Collectors.toList());
+    }
+
+
+    public void delete(String userId) {
+        this.userRepository.deleteById(userId);
+    }
+
+    public Object getUserByUsernameQuery(String username) {
+        Optional<UserEntity> byUsernameByQuery = this.userRepository.findByUsernameByQuery(username);
+        if (byUsernameByQuery.isPresent()) {
+            return byUsernameByQuery.get();
+        } else {
+            throw new RuntimeException("user does not exist.");
+        }
+    }
+
+    @Transactional
+    public void updateUser(int newAge, String username) {
+        this.userRepository.updateUser(newAge, username);
     }
 }
