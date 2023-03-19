@@ -1,12 +1,12 @@
 package com.example.demoweb.service;
 
 import com.example.demoweb.dto.NewUserDetailDTO;
-import com.example.demoweb.entity.UserContactEntity;
-import com.example.demoweb.entity.UserEntity;
+import com.example.demoweb.entity.user.UserContactEntity;
+import com.example.demoweb.entity.user.UserEntity;
 import com.example.demoweb.exception.EmailNotFoundException;
 import com.example.demoweb.lib.NotificationService;
-import com.example.demoweb.repository.UserContactRepository;
-import com.example.demoweb.repository.UserRepository;
+import com.example.demoweb.repository.user.UserContactRepository;
+import com.example.demoweb.repository.user.UserRepository;
 import com.example.demoweb.util.ImageProcesses;
 import com.example.demoweb.util.MailSender;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class UserService {
     private final NotificationService notificationService;
 
 
-    @Transactional(rollbackFor = {EmailNotFoundException.class})
+    @Transactional(rollbackFor = {EmailNotFoundException.class}, transactionManager = "userTransactionManager")
     public void saveNewUser(NewUserDetailDTO userDetail) throws EmailNotFoundException {
         log.info("thread:{}", Thread.currentThread().getName());
 

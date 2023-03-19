@@ -1,6 +1,6 @@
-package com.example.demoweb.repository;
+package com.example.demoweb.repository.user;
 
-import com.example.demoweb.entity.UserEntity;
+import com.example.demoweb.entity.user.UserEntity;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
