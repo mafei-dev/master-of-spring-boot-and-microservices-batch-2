@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -47,9 +48,15 @@ public class BookDbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             EntityManagerFactoryBuilder entityManagerFactoryBuilder,
             @Qualifier("hikariBookDataSource") DataSource dataSource) {
+        Map<String, String> hibernateProperties = new HashMap<>();
+        hibernateProperties.put("hibernate.show_sql", "true");
+        hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
+        hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+        hibernateProperties.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
         return entityManagerFactoryBuilder
                 .dataSource(dataSource)
                 .packages("com.example.demoweb.entity.book")
+                .properties(hibernateProperties)
                 .build();
     }
 
@@ -57,13 +64,9 @@ public class BookDbConfig {
     public PlatformTransactionManager bookTransactionManager(
             @Qualifier("bookEntityManagerFactory")
             LocalContainerEntityManagerFactoryBean managerFactoryBean) {
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-        hibernateProperties.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager(Objects.requireNonNull(managerFactoryBean.getObject()));
-        jpaTransactionManager.setJpaProperties(hibernateProperties);
+//        jpaTransactionManager.setJpaProperties(hibernateProperties);
         return jpaTransactionManager;
     }
 

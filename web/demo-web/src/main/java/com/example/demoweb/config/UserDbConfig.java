@@ -15,6 +15,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @Configuration
@@ -45,15 +47,16 @@ public class UserDbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             EntityManagerFactoryBuilder entityManagerFactoryBuilder,
             @Qualifier("hikariUserDataSource") DataSource dataSource) {
+        Map<String, String> hibernateProperties = new HashMap<>();
+        hibernateProperties.put("hibernate.show_sql", "true");
+        hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
+        hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+        hibernateProperties.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
         return entityManagerFactoryBuilder
                 .dataSource(dataSource)
                 .packages("com.example.demoweb.entity.user")
+                .properties(hibernateProperties)
                 .build();
-
-/*        LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setDataSource(dataSource);
-        factoryBean.setPackagesToScan("com.example.demoweb.entity.user");
-        return factoryBean;*/
     }
 
     @Bean(name = "userTransactionManager")
