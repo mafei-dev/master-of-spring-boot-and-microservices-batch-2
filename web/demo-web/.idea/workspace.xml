@@ -4,18 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cce39a2-e14d-4eb3-a5c7-10bba881053b" name="Changes" comment="eureka tested with static ports">
+    <list default="true" id="8cce39a2-e14d-4eb3-a5c7-10bba881053b" name="Changes" comment="eureka tested with dynamic ports">
+      <change beforePath="$PROJECT_DIR$/.idea/codestream.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -28,6 +41,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2NsSJgsoFOc9dGPgsaiftvZnwfz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
@@ -35,6 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -42,15 +59,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/2-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
+    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/2-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last.edited.regexp": "/test/sds",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "0be98cae49553a7cf51b8e6b2db47cd3",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -59,48 +82,88 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
-    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="routing" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="routing" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="service" nameIsGenerated="true">
+    <configuration name="OrderServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="order-service" nameIsGenerated="true">
       <module name="order-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.orderservice.OrderServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="service">
+    <configuration name="OrderServiceApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="order-service" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplication (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="order-service" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="order-service" nameIsGenerated="true">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.orderservice.OrderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="payment-service">
       <module name="payment-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="service">
+    <configuration name="PaymentServiceApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="payment-service">
       <module name="payment-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceApplication (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="service">
+    <configuration name="PaymentServiceApplication (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="payment-service">
       <module name="payment-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="service" nameIsGenerated="true">
+    <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" folderName="payment-service" nameIsGenerated="true">
       <module name="payment-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.paymentservice.PaymentServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.OrderServiceApplication (2)" />
+      <item itemvalue="Spring Boot.OrderServiceApplication (3)" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication (1)" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication (1)" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication (2)" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication (3)" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -110,7 +173,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680451227318</updated>
-      <workItem from="1680451230445" duration="3874000" />
+      <workItem from="1680451230445" duration="4064000" />
+      <workItem from="1680960265132" duration="273000" />
+      <workItem from="1680960565263" duration="11591000" />
     </task>
     <task id="LOCAL-00001" summary="eureka tested with static ports">
       <created>1680453992138</created>
@@ -119,14 +184,47 @@
       <option name="project" value="LOCAL" />
       <updated>1680453992138</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="eureka tested with dynamic ports">
+      <created>1680461100096</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680461100096</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/api-gateway" />
+    </ignored-roots>
     <MESSAGE value="eureka tested with static ports" />
-    <option name="LAST_COMMIT_MESSAGE" value="eureka tested with static ports" />
+    <MESSAGE value="eureka tested with dynamic ports" />
+    <option name="LAST_COMMIT_MESSAGE" value="eureka tested with dynamic ports" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/MainController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/MainController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/MainController.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
