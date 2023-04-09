@@ -45,9 +45,10 @@ public class MainController {
                 .collect(Collectors.toList());
     }
 
+    //host:8080/order-service/place
     @RequestMapping(path = "/{prefix}/{restURL:[a-z]+}", method = {RequestMethod.GET, RequestMethod.POST})
     public Object collectAndProcess(
-            @PathVariable String prefix,
+            @PathVariable String prefix,//service the request should go
             @PathVariable String restURL,
             HttpServletRequest request,
             HttpEntity<Object> requestData
@@ -71,7 +72,7 @@ public class MainController {
                         UriComponents path = UriComponentsBuilder
                                 .newInstance()
                                 .scheme("http")
-                                .host(serviceInstance.getHost())
+                                .host(serviceInstance.getHost())//VPC-IP
                                 .port(serviceInstance.getPort())
                                 .path(restURL)
                                 .build();
