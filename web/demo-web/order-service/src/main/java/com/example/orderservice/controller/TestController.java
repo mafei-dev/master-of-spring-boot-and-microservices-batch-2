@@ -1,28 +1,25 @@
 package com.example.orderservice.controller;
 
+import com.example.orderservice.service.external.PaymentClientService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
 public class TestController {
 
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
+    private final PaymentClientService paymentClientService;
 
     @GetMapping("/test")
     public Object getDate(HttpServletRequest request) {
@@ -41,11 +38,16 @@ public class TestController {
         //Make the payment.
         {
 
-            Map<String, Object> data = new HashMap<>();
+            /*Map<String, Object> data = new HashMap<>();
             ResponseEntity<Object> entity =
-                    this.restTemplate.postForEntity("http://payment-service/make-payment", data, Object.class);
+                    this.restTemplate.postForEntity("http://payment-service/payment/make-payment", data, Object.class);
             Object body = entity.getBody();
-            System.out.println("body : " + body);
+            System.out.println("body : " + body);*/
+        }
+
+        {
+            Object makePaymentResponse = this.paymentClientService.makePayment();
+            System.out.println("body : " + makePaymentResponse);
         }
         return PlceOrderResponse.builder()
                 .port(request.getServerPort())
