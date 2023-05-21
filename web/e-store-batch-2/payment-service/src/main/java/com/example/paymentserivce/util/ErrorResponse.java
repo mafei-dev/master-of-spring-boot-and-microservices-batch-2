@@ -1,4 +1,4 @@
-package com.example.userservice.util;
+package com.example.paymentserivce.util;
 
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;

@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public UserViewModal.UserViewResponse getUserByName(@RequestParam("username") String username) throws UserNotFoundException {
+        public UserViewModal.UserViewResponse getUserByName(@RequestParam("username") String username) throws UserNotFoundException {
         UserViewDTO.UserViewResponse userDetail = this.userService.getUserDetails(username);
         return UserViewModal.UserViewResponse.builder()
                 .userId(userDetail.getUserId())
