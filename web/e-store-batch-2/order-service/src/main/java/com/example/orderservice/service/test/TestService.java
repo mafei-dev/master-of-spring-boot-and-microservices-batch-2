@@ -13,7 +13,7 @@ public class TestService {
 
     @CircuitBreaker(name = "cb1", fallbackMethod = "helloFallback")
     //helloStringInt [method signature]
-    //StringIntException [signature]
+    //StringInt [signature]
     public String hello(String message,int age) {
         System.out.println("hello:message = " + message + ", age = " + age);
         System.out.println("TestService.hello");
@@ -28,6 +28,7 @@ public class TestService {
         throw new RuntimeException("test");
     }
 
+    //StringIntException [signature should be in here]
     public String helloFallback(String message,int age,Exception exception) {
         System.out.println("helloFallback:message = " + message + ", age = " + age);
         System.out.println("Exception : " + exception.getClass().getSimpleName());
