@@ -68,18 +68,20 @@ public class OrderService {
                     .username(request.getUsername())
                     .amount(request.getAmount())
                     .paymentId(null)
-                    .status(status)
+//                    .status(status)
                     .build();
-            status.add(OrderStatusEntity
+            OrderStatusEntity statusEntity = OrderStatusEntity
                     .builder()
                     .orderStatusId(UUID.randomUUID().toString())
                     .updatedDateTime(now)
                     .status("pending")
-                    .orderEntity(orderEntity)
-                    .build()
-            );
+//                    .orderEntity(orderEntity)
+                    .orderId(orderId)
+                    .build();
+
             //[order-service|local] update the order status as 'processing'
             this.orderRepository.save(orderEntity);
+            this.orderStatusRepository.save(statusEntity);
             log.debug("the order initialized successfully.");
 
         }
@@ -102,7 +104,8 @@ public class OrderService {
             this.orderStatusRepository.save(
                     OrderStatusEntity
                             .builder()
-                            .orderEntity(OrderEntity.builder().orderId(orderId).build())
+//                            .orderEntity(OrderEntity.builder().orderId(orderId).build())
+                            .orderId(orderId)
                             .updatedDateTime(LocalDateTime.now())
                             .status(addedNewOrderPayment.getStatus())
                             .build()

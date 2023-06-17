@@ -35,6 +35,6 @@ public class OrderEntity {
     @Column(name = "transaction_id")
     private String paymentId;
 
-    @OneToMany(mappedBy = "orderEntity")
-    private List<OrderStatusEntity> status;
+    /*@OneToMany(mappedBy = "orderEntity")
+    private List<OrderStatusEntity> status;*/
 }

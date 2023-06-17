@@ -8,6 +8,7 @@ import com.example.userservice.model.CreatedUserViewModel;
 import com.example.userservice.model.UserViewModal;
 import com.example.userservice.service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,15 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-        public UserViewModal.UserViewResponse getUserByName(@RequestParam("username") String username) throws UserNotFoundException {
+    public UserViewModal.UserViewResponse getUserByName(@RequestParam("username") String username) throws UserNotFoundException {
+        log.debug("username : {}", username);
         UserViewDTO.UserViewResponse userDetail = this.userService.getUserDetails(username);
         return UserViewModal.UserViewResponse.builder()
                 .userId(userDetail.getUserId())

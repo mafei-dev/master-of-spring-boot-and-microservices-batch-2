@@ -29,12 +29,12 @@ public class OrderStatusEntity {
     @Column(name = "status")
     private String status;
 
-   /* @Column(name = "order_id")
-    private String orderId;*/
+    @Column(name = "order_id")
+    private String orderId;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private OrderEntity orderEntity;
+    private OrderEntity orderEntity;*/
 
 
 }
