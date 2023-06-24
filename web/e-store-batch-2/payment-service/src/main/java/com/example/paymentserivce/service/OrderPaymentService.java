@@ -26,7 +26,7 @@ public class OrderPaymentService {
                         .builder()
                         .orderPaymentId(UUID.randomUUID().toString())
                         .amount(request.getAmount())
-                        .status(request.getStatus())
+                        .status("success")
                         .dateTime(now)
                         .username(request.getUsername())
                         .orderId(request.getOrderId())

@@ -6,10 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface OrderRepository extends CrudRepository<OrderEntity, String> {
 
     @Modifying
     @Query("update order _order set _order.paymentId = ?1 where _order.orderId = ?2")
     int updateTransactionId(String paymentId, String orderId);
+
+    Optional<OrderEntity> findFirstByOrderId(String orderId);
+
 }

@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="finalized entire app">
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/test/TestService.java" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="signature updated in the method description.">
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/dto/OrderStatusDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/exception/OrderNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/exception/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/model/local/OrderStatusModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/advice/OrderControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/advice/OrderControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/entity/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/entity/OrderStatusEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/entity/OrderStatusEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/repository/OrderStatusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/repository/OrderStatusRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/PaymentServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/PaymentServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/example/paymentserivce/service/OrderPaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/example/paymentserivce/service/OrderPaymentService.java" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -44,16 +55,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="18-day" />
+        <entry key="$PROJECT_DIR$/../.." value="19-day" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/Object.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/11.10/feign-core-11.10-sources.jar!/feign/FeignException.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3-sources.jar!/javax/persistence/GeneratedValue.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.7.12/spring-data-commons-2.7.12-sources.jar!/org/springframework/data/repository/CrudRepository.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.3.27/spring-tx-5.3.27.jar!/org/springframework/transaction/annotation/Transactional.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.27/spring-web-5.3.27-sources.jar!/org/springframework/http/HttpStatus.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
@@ -88,8 +99,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/2-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
-    "git-widget-placeholder": "19-day",
+    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
+    "git-widget-placeholder": "20-day",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/order-service/src/main/java/com/example/orderservice",
@@ -99,7 +110,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.sync",
-    "spring.configuration.checksum": "a18b7a1c6895b3489aeee268df52e4ef",
+    "spring.configuration.checksum": "0892b22f6be788abcb31488c855f940e",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -203,7 +214,8 @@
       <workItem from="1685977046279" duration="140000" />
       <workItem from="1686326380138" duration="10289000" />
       <workItem from="1686476889992" duration="1519000" />
-      <workItem from="1686998806317" duration="6634000" />
+      <workItem from="1686998806317" duration="7710000" />
+      <workItem from="1687596593929" duration="16585000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -227,7 +239,23 @@
       <option name="project" value="LOCAL" />
       <updated>1686998856909</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="end of the 19 with resilience4j sample.">
+      <option name="closed" value="true" />
+      <created>1687006682693</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687006682693</updated>
+    </task>
+    <task id="LOCAL-00005" summary="signature updated in the method description.">
+      <option name="closed" value="true" />
+      <created>1687006757704</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687006757704</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,80 +277,37 @@
     <MESSAGE value="created all services and fully completed the user-service" />
     <MESSAGE value="created payment service and order-service" />
     <MESSAGE value="finalized entire app" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalized entire app" />
+    <MESSAGE value="end of the 19 with resilience4j sample." />
+    <MESSAGE value="signature updated in the method description." />
+    <option name="LAST_COMMIT_MESSAGE" value="signature updated in the method description." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="1" />
+          <line>55</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="2" />
+          <line>96</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="3" />
+          <line>117</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="5" />
+          <line>156</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/OrderController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/internal/OrderService.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="15" />
+          <line>163</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

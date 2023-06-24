@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 public class OrderStatusEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "order_status_id", unique = true)
     private String orderStatusId;
 

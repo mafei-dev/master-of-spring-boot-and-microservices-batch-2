@@ -1,5 +1,6 @@
 package com.example.orderservice.advice;
 
+import com.example.orderservice.exception.OrderNotFoundException;
 import com.example.orderservice.exception.UserNotActiveException;
 import com.example.orderservice.util.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -23,4 +24,17 @@ public class OrderControllerAdvice {
         response.put("username", exception.getUsername());
         return response;
     }
+
+    @ExceptionHandler({OrderNotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse catchOrderNotFoundException(OrderNotFoundException exception) {
+        log.error("message : {}, [orderId - {}]", exception.getMessage(), exception.getOrderId());
+        if (log.isDebugEnabled()) {
+            exception.printStackTrace();
+        }
+        ErrorResponse response = new ErrorResponse(exception.getMessage());
+        response.put("order_id", exception.getOrderId());
+        return response;
+    }
+
 }
