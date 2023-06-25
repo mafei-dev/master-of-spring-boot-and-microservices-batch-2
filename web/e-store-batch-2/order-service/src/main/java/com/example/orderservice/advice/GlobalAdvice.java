@@ -24,4 +24,11 @@ public class GlobalAdvice {
                 });
         return response;
     }
+
+    @ExceptionHandler({Exception.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse catchException(Exception exception) {
+        ErrorResponse response = new ErrorResponse(exception.getMessage());
+        return response;
+    }
 }

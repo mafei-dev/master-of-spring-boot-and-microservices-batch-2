@@ -12,6 +12,7 @@ import com.example.orderservice.model.external.ViewOrderPaymentDetailModel;
 import com.example.orderservice.model.local.OrderStatusModel;
 import com.example.orderservice.repository.OrderRepository;
 import com.example.orderservice.repository.OrderStatusRepository;
+import com.example.orderservice.service.access.UserServiceClientAccess;
 import com.example.orderservice.service.external.PaymentServiceClient;
 import com.example.orderservice.service.external.UserServiceClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -41,7 +42,7 @@ public class OrderService {
     //external
     private final PaymentServiceClient paymentServiceClient;
     //external
-    private final UserServiceClient userServiceClient;
+    private final UserServiceClientAccess userServiceClient;
 
     public String createOrderFallbackMethod(CreateOrderDTO.Request request, Exception exception) throws ServiceException {
         log.error("CreateOrderFallbackMethod : {} ", exception.getMessage());
