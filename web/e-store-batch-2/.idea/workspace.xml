@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with FallbackFactory [with anonymous inner class]">
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallback.java" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -205,7 +203,7 @@
       <workItem from="1686476889992" duration="1519000" />
       <workItem from="1686998806317" duration="7710000" />
       <workItem from="1687596593929" duration="21292000" />
-      <workItem from="1687696136541" duration="9892000" />
+      <workItem from="1687696136541" duration="10933000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -293,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687705597959</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]">
+      <option name="closed" value="true" />
+      <created>1687706149131</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687706149131</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +329,8 @@
     <MESSAGE value="added common config template" />
     <MESSAGE value="spring cloud CB with fallback [without accessing cause]" />
     <MESSAGE value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
+    <MESSAGE value="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
