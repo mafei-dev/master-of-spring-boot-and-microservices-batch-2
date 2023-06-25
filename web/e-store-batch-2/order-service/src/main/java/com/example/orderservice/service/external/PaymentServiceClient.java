@@ -17,25 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface PaymentServiceClient {
 
     @GetMapping
-    @CircuitBreaker(name = "cb1", fallbackMethod = "getOrderPaymentFallbackMethod")
     ViewOrderPaymentDetailModel.Response getOrderPayment(@RequestParam("orderId") String orderId) throws ServiceException;
 
-    default ViewOrderPaymentDetailModel.Response getOrderPaymentFallbackMethod(String orderId, Exception exception) throws ServiceException {
-        System.out.println("PaymentServiceClient.getOrderPaymentFallbackMethod");
-        if (exception instanceof FeignException) {
-            FeignException feignException = (FeignException) exception;
-            System.out.println("FeignException");
-            if (feignException.status() == HttpStatus.SERVICE_UNAVAILABLE.value()) {
-                System.out.println("SERVICE_UNAVAILABLE");
-            }
-            throw new ServiceException("FeignException", exception);
-        } else if (exception instanceof CallNotPermittedException) {
-            System.out.println("FeignException");
-            throw new ServiceException("CallNotPermittedException", exception);
-        } else {
-            throw new ServiceException("UNKNOWN exception", exception);
-        }
-    }
 
     @PostMapping
     NewOrderPaymentModel.Response addNewOrderPayment(@RequestBody NewOrderPaymentModel.Request request);

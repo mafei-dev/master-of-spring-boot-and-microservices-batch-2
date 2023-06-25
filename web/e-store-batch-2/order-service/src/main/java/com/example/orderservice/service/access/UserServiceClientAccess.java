@@ -26,7 +26,7 @@ public class UserServiceClientAccess implements UserServiceClient {
     }
 
     @Override
-    @CircuitBreaker(name = "cb1", fallbackMethod = "getUserByNameFallback")
+    @CircuitBreaker(name = "UserServiceClientAccessGetUserByName", fallbackMethod = "getUserByNameFallback")
     public UserViewModal.UserViewResponse getUserByName(String username) throws ServiceException {
         return userServiceClient.getUserByName(username);
     }
