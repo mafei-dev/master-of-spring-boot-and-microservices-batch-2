@@ -3,6 +3,7 @@ package com.example.orderservice.controller;
 import com.example.orderservice.exception.ServiceException;
 import com.example.orderservice.service.access.UserServiceClientAccess;
 import com.example.orderservice.service.external.UserServiceClient;
+import com.example.orderservice.service.external.UserServiceClientCloud;
 import com.example.orderservice.service.test.TestService;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
@@ -22,6 +23,7 @@ public class TestController {
     private final TestService testService;
     private final CircuitBreakerRegistry circuitBreakerRegistry;
     private final UserServiceClientAccess userServiceClient;
+    private final UserServiceClientCloud userServiceClientCloud;
 
     @RequestMapping("/hello")
     public String hello() {
@@ -40,4 +42,19 @@ public class TestController {
         System.out.println("Before Status : " + state);
         return userServiceClient.getUserByName(username);
     }
+
+    @GetMapping("/user-cloud")
+    public Object testUserCloud(@RequestParam("username") String username) throws ServiceException {
+        System.out.println("--------------------------------");
+/*
+        this.circuitBreakerRegistry.getAllCircuitBreakers().forEach(circuitBreaker -> {
+            System.out.println(circuitBreaker.getName());
+        });
+*/
+        CircuitBreaker cb1 = this.circuitBreakerRegistry.circuitBreaker("UserServiceClientCloudgetUserByNameString");
+        CircuitBreaker.State state = cb1.getState();
+        System.out.println("Before Status : " + state);
+        return userServiceClientCloud.getUserByName(username);
+    }
+
 }
