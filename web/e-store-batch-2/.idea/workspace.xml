@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with fallback [without accessing cause]">
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with FallbackFactory [with anonymous inner class]">
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClientCloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClientCloud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -204,7 +205,7 @@
       <workItem from="1686476889992" duration="1519000" />
       <workItem from="1686998806317" duration="7710000" />
       <workItem from="1687596593929" duration="21292000" />
-      <workItem from="1687696136541" duration="9250000" />
+      <workItem from="1687696136541" duration="9892000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -284,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687705062376</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="spring cloud CB with FallbackFactory [with anonymous inner class]">
+      <option name="closed" value="true" />
+      <created>1687705597959</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687705597959</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +322,8 @@
     <MESSAGE value="added separate configurations for each instance" />
     <MESSAGE value="added common config template" />
     <MESSAGE value="spring cloud CB with fallback [without accessing cause]" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with fallback [without accessing cause]" />
+    <MESSAGE value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,12 +355,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java</url>
-          <line>41</line>
+          <line>40</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java</url>
-          <line>30</line>
+          <line>29</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
