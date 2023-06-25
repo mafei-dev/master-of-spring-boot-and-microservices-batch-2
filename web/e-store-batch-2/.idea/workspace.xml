@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="added common config template">
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClientCloud.java" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with fallback [without accessing cause]">
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/fallback/UserServiceClientCloudFallbackFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/PaymentServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/PaymentServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClientCloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/external/UserServiceClientCloud.java" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -207,7 +204,7 @@
       <workItem from="1686476889992" duration="1519000" />
       <workItem from="1686998806317" duration="7710000" />
       <workItem from="1687596593929" duration="21292000" />
-      <workItem from="1687696136541" duration="8765000" />
+      <workItem from="1687696136541" duration="9250000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -279,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687701909986</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="spring cloud CB with fallback [without accessing cause]">
+      <option name="closed" value="true" />
+      <created>1687705062376</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687705062376</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +312,8 @@
     <MESSAGE value="added a new layer for manage resilience. ignore-exceptions were added" />
     <MESSAGE value="added separate configurations for each instance" />
     <MESSAGE value="added common config template" />
-    <option name="LAST_COMMIT_MESSAGE" value="added common config template" />
+    <MESSAGE value="spring cloud CB with fallback [without accessing cause]" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with fallback [without accessing cause]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

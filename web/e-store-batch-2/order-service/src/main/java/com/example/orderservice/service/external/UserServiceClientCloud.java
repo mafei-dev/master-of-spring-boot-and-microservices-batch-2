@@ -2,12 +2,13 @@ package com.example.orderservice.service.external;
 
 import com.example.orderservice.exception.ServiceException;
 import com.example.orderservice.model.external.UserViewModal;
+import com.example.orderservice.service.external.fallback.UserServiceClientCloudFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(contextId = "UserServiceClientCloud", name = "user-service", path = "/order", fallback = UserServiceClientCloudFallback.class)
+@FeignClient(contextId = "UserServiceClientCloud", name = "user-service", path = "/order",
+        fallbackFactory = UserServiceClientCloudFallbackFactory.class)
 public interface UserServiceClientCloud {
     @GetMapping
         //UserServiceClientCloudgetUserByNameString
@@ -15,6 +16,7 @@ public interface UserServiceClientCloud {
 
 
 }
+/*
 @Component
 class UserServiceClientCloudFallback implements UserServiceClientCloud {
     @Override
@@ -22,4 +24,4 @@ class UserServiceClientCloudFallback implements UserServiceClientCloud {
         System.out.println("UserServiceClientCloudFallback.getUserByName");
         return null;
     }
-}
+}*/
