@@ -2,7 +2,6 @@ package com.example.orderservice.controller;
 
 import com.example.orderservice.exception.ServiceException;
 import com.example.orderservice.service.access.UserServiceClientAccess;
-import com.example.orderservice.service.external.UserServiceClient;
 import com.example.orderservice.service.external.UserServiceClientCloud;
 import com.example.orderservice.service.test.TestService;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
@@ -56,5 +55,19 @@ public class TestController {
         System.out.println("Before Status : " + state);
         return userServiceClientCloud.getUserByName(username);
     }
+
+
+    @GetMapping("/bulkhead")
+    public Object testBulkhead(@RequestParam("count") String count) throws ServiceException {
+
+        return userServiceClient.getUserDetails(count);
+    }
+
+    @GetMapping("/bulkhead/tp")
+    public Object testBulkheadTP(@RequestParam("count") String count) {
+        System.out.println("TestController:Thread = " + Thread.currentThread().getName() + ">" + count);
+        return userServiceClient.getUserDetailsTP(count);
+    }
+
 
 }

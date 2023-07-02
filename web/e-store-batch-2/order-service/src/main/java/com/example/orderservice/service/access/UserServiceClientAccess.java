@@ -6,10 +6,13 @@ import com.example.orderservice.model.external.UserViewModal;
 import com.example.orderservice.service.external.UserServiceClient;
 import com.example.orderservice.util.CustomLogger;
 import feign.FeignException;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.CompletableFuture;
 
 @Component
 public class UserServiceClientAccess implements UserServiceClient {
@@ -60,5 +63,41 @@ public class UserServiceClientAccess implements UserServiceClient {
     @Override
     public CreatedUserViewModel.Response addNewUser(CreatedUserViewModel.Request request) {
         return userServiceClient.addNewUser(request);
+    }
+
+    @Bulkhead(name = "UserServiceClientAccessGetUserDetails", fallbackMethod = "getUserDetailsFallbackMethod")
+    public Object getUserDetails(String count) {
+        try {
+            System.out.println("Thread = " + Thread.currentThread().getName() + ">" + count);
+            Thread.sleep(2_000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return count + ":S";
+    }
+
+    public Object getUserDetailsFallbackMethod(String count, Exception exception) {
+        System.out.println("count:" + count + ",getUserDetailsFallbackMethod:" + exception.getMessage());
+        return count + ":FB";
+    }
+
+
+    @Bulkhead(name = "UserServiceClientAccessGetUserDetailsTP",
+            fallbackMethod = "getUserDetailsFallbackMethodTP",
+            type = Bulkhead.Type.THREADPOOL
+    )
+    public CompletableFuture<Object> getUserDetailsTP(String count) {
+        try {
+            System.out.println("Thread = " + Thread.currentThread().getName() + ">" + count);
+            Thread.sleep(2_000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return CompletableFuture.completedFuture(count + ":S");
+    }
+
+    public CompletableFuture<Object> getUserDetailsFallbackMethodTP(String count, Exception exception) {
+        System.out.println("count:" + count + ",getUserDetailsFallbackMethodTP:" + exception.getMessage());
+        return CompletableFuture.completedFuture(count + ":FB");
     }
 }

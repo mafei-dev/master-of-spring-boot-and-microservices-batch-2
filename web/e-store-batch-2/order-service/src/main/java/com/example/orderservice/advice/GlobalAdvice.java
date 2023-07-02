@@ -28,6 +28,7 @@ public class GlobalAdvice {
     @ExceptionHandler({Exception.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse catchException(Exception exception) {
+        exception.printStackTrace();
         ErrorResponse response = new ErrorResponse(exception.getMessage());
         return response;
     }
