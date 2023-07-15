@@ -70,4 +70,15 @@ public class TestController {
     }
 
 
+    //check the main-pool
+    @GetMapping("/test-pool-1")
+    public void testPool1() throws InterruptedException {
+        this.userServiceClient.testPool1();
+    }
+
+    @GetMapping("/test-pool-2")
+    public void testPool2() {
+        this.userServiceClient.testPool2();
+    }
+
 }

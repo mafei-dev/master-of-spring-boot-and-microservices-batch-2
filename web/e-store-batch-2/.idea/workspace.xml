@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]">
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="Bulkhead">
+      <change afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -48,6 +51,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/Object.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/System.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk1.8.0_202/src.zip!/java/time/LocalDateTime.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/io/github/openfeign/feign-core/11.10/feign-core-11.10-sources.jar!/feign/FeignException.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3-sources.jar!/javax/persistence/GeneratedValue.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.27/spring-web-5.3.27-sources.jar!/org/springframework/http/HttpStatus.java" root0="SKIP_INSPECTION" />
@@ -74,37 +79,37 @@
     <option name="showVisibilityIcons" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master,-3ea54a/21-day",
-    "git-widget-placeholder": "21-day",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/order-service/src/main/java/com/example/orderservice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "spring.configuration.checksum": "0892b22f6be788abcb31488c855f940e",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;22-day&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/order-service/src/main/java/com/example/orderservice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;ac3ba7703191f7445714ce5e3af569e6&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -132,7 +137,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PaymentServiceApplication">
+  <component name="RunManager" selected="Application.Tester">
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tester" />
+      <module name="order-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -182,6 +194,56 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Alpine1" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="docker.io/library/alpine:latest" />
+          <option name="containerName" value="Alpine1" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="my-app" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="docker.io/library/nginx:latest" />
+          <option name="containerName" value="my-app" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="80" />
+                <option name="hostPort" value="8081" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Tester" />
+      <item itemvalue="Docker.Alpine1" />
+      <item itemvalue="Docker.my-app" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.EurekaServiceApplication" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication" />
+      <item itemvalue="Spring Boot.PaymentServiceApplication (1)" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Tester" />
+        <item itemvalue="Docker.my-app" />
+        <item itemvalue="Docker.Alpine1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -204,6 +266,13 @@
       <workItem from="1686998806317" duration="7710000" />
       <workItem from="1687596593929" duration="21292000" />
       <workItem from="1687696136541" duration="10933000" />
+      <workItem from="1688887671142" duration="3042000" />
+      <workItem from="1688941623170" duration="1717000" />
+      <workItem from="1688948043962" duration="2000" />
+      <workItem from="1688948818730" duration="1895000" />
+      <workItem from="1689063240996" duration="306000" />
+      <workItem from="1689193993563" duration="597000" />
+      <workItem from="1689370665728" duration="720000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -362,12 +431,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java</url>
-          <line>29</line>
+          <line>31</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>

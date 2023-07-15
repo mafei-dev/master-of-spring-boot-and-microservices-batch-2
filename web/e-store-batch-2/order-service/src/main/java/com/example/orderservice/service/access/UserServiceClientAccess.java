@@ -9,12 +9,14 @@ import feign.FeignException;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.CompletableFuture;
 
 @Component
+@Slf4j
 public class UserServiceClientAccess implements UserServiceClient {
 
     private final UserServiceClient userServiceClient;
@@ -69,7 +71,7 @@ public class UserServiceClientAccess implements UserServiceClient {
     public Object getUserDetails(String count) {
         try {
             System.out.println("Thread = " + Thread.currentThread().getName() + ">" + count);
-            Thread.sleep(2_000);
+            Thread.sleep(10_000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -100,4 +102,14 @@ public class UserServiceClientAccess implements UserServiceClient {
         System.out.println("count:" + count + ",getUserDetailsFallbackMethodTP:" + exception.getMessage());
         return CompletableFuture.completedFuture(count + ":FB");
     }
+
+    public void testPool1() throws InterruptedException {
+        log.debug("testPool1");
+        Thread.sleep(10_000);
+    }
+
+    public void testPool2() {
+        log.debug("testPool2");
+    }
+
 }
