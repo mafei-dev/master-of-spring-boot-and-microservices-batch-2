@@ -4,12 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="Bulkhead">
-      <change afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="Tested the application with bulkheads and without  bulkheads">
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-with-docker-registry.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-docker.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-docker.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/Tester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/service/access/UserServiceClientAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -44,7 +62,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="20-day" />
+        <entry key="$PROJECT_DIR$/../.." value="22-day" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -79,37 +97,37 @@
     <option name="showVisibilityIcons" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;app.teamhub.trackedBranches&quot;: &quot;-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;22-day&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/order-service/src/main/java/com/example/orderservice&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;ac3ba7703191f7445714ce5e3af569e6&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/23-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
+    "git-widget-placeholder": "23-day",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Docker",
+    "spring.configuration.checksum": "ac3ba7703191f7445714ce5e3af569e6",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -118,9 +136,11 @@
       <recent name="com.example.orderservice.exception" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\order-service\src\main\java\com\example\orderservice" />
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\order-service\src\main\java\com\example\orderservice\model\external" />
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\payment-service\src\main\java\com\example\paymentserivce" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\user-service\src\main\resources" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\user-service" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\payment-service" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\payment-service\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.orderservice.service.access" />
@@ -137,13 +157,126 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Tester">
-    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tester" />
-      <module name="order-service" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Docker.docker-compose-with-docker-file.yml: Compose Deployment">
+    <configuration name="order-service [package]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/order-service" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="payment-service [package]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/payment-service" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="user-service [package]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/user-service" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
@@ -194,13 +327,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Alpine1" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
-      <deployment type="docker-image">
-        <settings>
-          <option name="imageTag" value="docker.io/library/alpine:latest" />
-          <option name="containerName" value="Alpine1" />
-        </settings>
-      </deployment>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
@@ -209,16 +337,64 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="my-app" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose-with-docker-file.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose-with-docker-file.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="e-store-eureka-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose-with-docker-file.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.e-store-api-gateway: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="e-store-api-gateway" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="nginx-1" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
       <deployment type="docker-image">
         <settings>
-          <option name="imageTag" value="docker.io/library/nginx:latest" />
-          <option name="containerName" value="my-app" />
+          <option name="imageTag" value="nginx:latest" />
+          <option name="containerName" value="nginx-1" />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
                 <option name="containerPort" value="80" />
-                <option name="hostPort" value="8081" />
+                <option name="hostPort" value="8080" />
               </DockerPortBindingImpl>
             </list>
           </option>
@@ -226,10 +402,33 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="user-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="e-store-user-service:1.0.2" />
+          <option name="containerName" value="e-store-user-service" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="spring_profiles_active" />
+                <option name="value" value="docker" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="sourceFilePath" value="user-service/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.Tester" />
-      <item itemvalue="Docker.Alpine1" />
-      <item itemvalue="Docker.my-app" />
+      <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.e-store-api-gateway: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.user-service/Dockerfile" />
+      <item itemvalue="Maven.order-service [package]" />
+      <item itemvalue="Maven.payment-service [package]" />
+      <item itemvalue="Maven.user-service [package]" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.EurekaServiceApplication" />
@@ -239,9 +438,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Tester" />
-        <item itemvalue="Docker.my-app" />
-        <item itemvalue="Docker.Alpine1" />
+        <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.e-store-api-gateway: Compose Deployment" />
+        <item itemvalue="Docker.user-service/Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +473,9 @@
       <workItem from="1688948818730" duration="1895000" />
       <workItem from="1689063240996" duration="306000" />
       <workItem from="1689193993563" duration="597000" />
-      <workItem from="1689370665728" duration="720000" />
+      <workItem from="1689370665728" duration="1920000" />
+      <workItem from="1689497930033" duration="9592000" />
+      <workItem from="1689507547006" duration="7768000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -368,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687706149131</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Tested the application with bulkheads and without  bulkheads">
+      <option name="closed" value="true" />
+      <created>1689428570342</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689428570342</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +610,8 @@
     <MESSAGE value="spring cloud CB with fallback [without accessing cause]" />
     <MESSAGE value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
     <MESSAGE value="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]" />
+    <MESSAGE value="Tested the application with bulkheads and without  bulkheads" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tested the application with bulkheads and without  bulkheads" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
