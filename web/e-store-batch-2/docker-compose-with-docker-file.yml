@@ -2,6 +2,7 @@ version: '3'
 services:
   e-store-eureka-service:
     container_name: e-store-eureka-service
+    image: mafeidev/e-store-eureka-service:1.0.0
     build:
       context: /eureka-service
     ports:
@@ -10,6 +11,7 @@ services:
       - e-store
   e-store-api-gateway:
     container_name: e-store-api-gateway
+    image: mafeidev/e-store-api-gateway:1.0.0
     build:
       context: /api-gateway
     ports:
@@ -21,39 +23,47 @@ services:
     depends_on:
       - e-store-eureka-service
   e-store-order-service:
-    container_name: e-store-order-service
+#    container_name: e-store-order-service
+    image: mafeidev/e-store-order-service:1.0.2
     build:
       context: /order-service
     networks:
       - e-store
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+    deploy:
+      replicas: 3
     depends_on:
       - e-store-api-gateway
       - e-store-eureka-service
   e-store-payment-service:
-    container_name: e-store-payment-service
+    #    container_name: e-store-payment-service
+    image: mafeidev/e-store-payment-service:1.0.2
     build:
       context: /payment-service
     networks:
       - e-store
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+    deploy:
+      replicas: 2
     depends_on:
       - e-store-api-gateway
       - e-store-eureka-service
   e-store-user-service:
-    container_name: e-store-user-service
+    #    container_name: e-store-user-service
+    image: mafeidev/e-store-user-service:1.0.2
     build:
       context: /user-service
     networks:
       - e-store
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+    deploy:
+      replicas: 2
     depends_on:
       - e-store-api-gateway
       - e-store-eureka-service
-
 networks:
   e-store:
     driver: bridge

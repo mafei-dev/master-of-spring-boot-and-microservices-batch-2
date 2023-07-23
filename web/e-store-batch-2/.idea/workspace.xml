@@ -4,30 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="Tested the application with bulkheads and without  bulkheads">
-      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-with-docker-registry.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-docker.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-docker.properties" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="after practicing docker compose">
+      <change afterPath="$PROJECT_DIR$/api-gateway/jar-builder.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compose-runner.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-service/jar-builder.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jar-builder.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/jar-builder.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/jar-builder.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/jar-builder.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-with-docker-registry.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-others/docker-compose-with-docker-registry.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-others/docker-compose.yml" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -62,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="22-day" />
+        <entry key="$PROJECT_DIR$/../.." value="24-day" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -108,11 +96,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/23-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master",
-    "git-widget-placeholder": "23-day",
+    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/23-day,-3ea54a/24-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master,-3ea54a/25-day",
+    "git-widget-placeholder": "25-day",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2",
+    "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/user-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,11 +124,15 @@
       <recent name="com.example.orderservice.exception" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2" />
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\user-service\src\main\resources" />
       <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\user-service" />
       <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\payment-service" />
-      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\payment-service\src\main\resources" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\order-service" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\eureka-service" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\docker-others" />
+      <recent name="C:\MAFEI\programmer.lk\batch-2\space\batch-2-space\web\e-store-batch-2\docker" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.orderservice.service.access" />
@@ -157,7 +149,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose-with-docker-file.yml: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment">
     <configuration name="order-service [package]" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -278,6 +270,21 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="jar-builder.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/jar-builder.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
@@ -328,7 +335,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
@@ -364,71 +373,41 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.e-store-api-gateway: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="e-store-api-gateway" />
+              <option value="e-store-user-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose-with-docker-file.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.e-store-user-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="e-store-user-service" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="nginx-1" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
-      <deployment type="docker-image">
-        <settings>
-          <option name="imageTag" value="nginx:latest" />
-          <option name="containerName" value="nginx-1" />
-          <option name="portBindings">
-            <list>
-              <DockerPortBindingImpl>
-                <option name="containerPort" value="80" />
-                <option name="hostPort" value="8080" />
-              </DockerPortBindingImpl>
-            </list>
-          </option>
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="user-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="e-store-user-service:1.0.2" />
-          <option name="containerName" value="e-store-user-service" />
-          <option name="envVars">
-            <list>
-              <DockerEnvVarImpl>
-                <option name="name" value="spring_profiles_active" />
-                <option name="value" value="docker" />
-              </DockerEnvVarImpl>
-            </list>
-          </option>
-          <option name="sourceFilePath" value="user-service/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.e-store-user-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.e-store-api-gateway: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.user-service/Dockerfile" />
       <item itemvalue="Maven.order-service [package]" />
       <item itemvalue="Maven.payment-service [package]" />
       <item itemvalue="Maven.user-service [package]" />
+      <item itemvalue="Shell Script.jar-builder.sh" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.EurekaServiceApplication" />
@@ -438,11 +417,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" />
+        <item itemvalue="Shell Script.jar-builder.sh" />
         <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.e-store-api-gateway: Compose Deployment" />
-        <item itemvalue="Docker.user-service/Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.e-store-user-service: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -475,7 +454,11 @@
       <workItem from="1689193993563" duration="597000" />
       <workItem from="1689370665728" duration="1920000" />
       <workItem from="1689497930033" duration="9592000" />
-      <workItem from="1689507547006" duration="7768000" />
+      <workItem from="1689507547006" duration="8865000" />
+      <workItem from="1690027917978" duration="2671000" />
+      <workItem from="1690034261424" duration="2993000" />
+      <workItem from="1690037606272" duration="6588000" />
+      <workItem from="1690120751066" duration="668000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -579,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689428570342</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="after practicing docker compose">
+      <option name="closed" value="true" />
+      <created>1689515440095</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689515440095</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +602,8 @@
     <MESSAGE value="spring cloud CB with FallbackFactory [with anonymous inner class]" />
     <MESSAGE value="spring cloud CB with FallbackFactory [with implemented class and also a @component was passed through the clas]" />
     <MESSAGE value="Tested the application with bulkheads and without  bulkheads" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested the application with bulkheads and without  bulkheads" />
+    <MESSAGE value="after practicing docker compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="after practicing docker compose" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
