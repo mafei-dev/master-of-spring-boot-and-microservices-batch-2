@@ -24,13 +24,13 @@ services:
       - e-store-eureka-service
   e-store-order-service:
 #    container_name: e-store-order-service
-    image: mafeidev/e-store-order-service:1.0.2
+    image: mafeidev/e-store-order-service:1.0.4
     build:
       context: /order-service
     networks:
       - e-store
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=dockerp
     deploy:
       replicas: 3
     depends_on:
@@ -38,13 +38,13 @@ services:
       - e-store-eureka-service
   e-store-payment-service:
     #    container_name: e-store-payment-service
-    image: mafeidev/e-store-payment-service:1.0.2
+    image: mafeidev/e-store-payment-service:1.0.4
     build:
       context: /payment-service
     networks:
       - e-store
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=dockerp
     deploy:
       replicas: 2
     depends_on:
@@ -52,13 +52,13 @@ services:
       - e-store-eureka-service
   e-store-user-service:
     #    container_name: e-store-user-service
-    image: mafeidev/e-store-user-service:1.0.2
+    image: mafeidev/e-store-user-service:1.0.4
     build:
       context: /user-service
     networks:
       - e-store
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_PROFILES_ACTIVE=dockerp
     deploy:
       replicas: 2
     depends_on:

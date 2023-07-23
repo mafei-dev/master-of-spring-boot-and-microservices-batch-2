@@ -4,6 +4,7 @@ import com.example.orderservice.exception.ServiceException;
 import com.example.orderservice.service.access.UserServiceClientAccess;
 import com.example.orderservice.service.external.UserServiceClientCloud;
 import com.example.orderservice.service.test.TestService;
+import com.example.orderservice.util.ScopeTest;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import lombok.AllArgsConstructor;
@@ -19,10 +20,18 @@ import java.util.Random;
 @AllArgsConstructor
 public class TestController {
 
+
+    private final ScopeTest scopeTest;
     private final TestService testService;
     private final CircuitBreakerRegistry circuitBreakerRegistry;
     private final UserServiceClientAccess userServiceClient;
     private final UserServiceClientCloud userServiceClientCloud;
+
+
+    @GetMapping("/scope")
+    public String scopeTest() {
+        return this.scopeTest.getValue();
+    }
 
     @RequestMapping("/hello")
     public String hello() {

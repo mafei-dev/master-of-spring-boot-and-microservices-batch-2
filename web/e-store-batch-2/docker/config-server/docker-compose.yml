@@ -1,0 +1,9 @@
+version: '3'
+services:
+  config-server:
+    container_name: config-server
+    image: e-store-config-server:1.0.0
+    build:
+      context: ./../../config-server
+    ports:
+      - "1010:1010"
