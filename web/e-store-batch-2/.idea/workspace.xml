@@ -4,40 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="final test of docker composes with scaling">
-      <change afterPath="$PROJECT_DIR$/config-server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/jar-builder.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/java/com/example/configserver/ConfigServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/test/java/com/example/configserver/ConfigServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/config-server/jar-builder.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-others/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/util/ScopeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-dockerp.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-dockerp.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dockerp.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d0bdc041-982e-42fe-b46d-35426c787830" name="Changes" comment="finalized config server with docker evn">
+      <change afterPath="$PROJECT_DIR$/docker/zipkin/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TraceTestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-with-docker-file.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-others/docker-compose-with-docker-registry.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-others/docker-compose-with-docker-registry.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-others/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/config-server/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/resources/application-dev.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/example/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/userservice/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application-dev.properties" afterDir="false" />
     </list>
     <list id="4d1d12ac-e247-4a8f-8f61-fa832b0fc4f6" name="ignore" comment="">
@@ -90,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="25-day" />
+        <entry key="$PROJECT_DIR$/../.." value="26-day" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -136,8 +110,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/23-day,-3ea54a/24-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master,-3ea54a/25-day",
-    "git-widget-placeholder": "26-day",
+    "app.teamhub.trackedBranches": "-3ea54a/10-day,-3ea54a/11-day,-3ea54a/12-day,-3ea54a/13-day,-3ea54a/14-day,-3ea54a/15-day,-3ea54a/17-day,-3ea54a/19-day,-3ea54a/2-day,-3ea54a/20-day,-3ea54a/21-day,-3ea54a/22-day,-3ea54a/23-day,-3ea54a/24-day,-3ea54a/25-day,-3ea54a/26-day,-3ea54a/3-day,-3ea54a/4-day,-3ea54a/5-day,-3ea54a/6-day,-3ea54a/7-day,-3ea54a/8-day,-3ea54a/master,-3ea54a/27-day",
+    "git-widget-placeholder": "27-day",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/MAFEI/programmer.lk/batch-2/space/batch-2-space/web/e-store-batch-2/config-server",
@@ -147,7 +121,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "Docker",
-    "spring.configuration.checksum": "ac3ba7703191f7445714ce5e3af569e6",
+    "spring.configuration.checksum": "40a1026c1699440db671fff623ae36de",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -189,7 +163,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.config-server.config-server: Compose Deployment">
+  <component name="RunManager" selected="Docker.zipkin/docker-compose.yaml: Compose Deployment">
     <configuration name="order-service [package]" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -326,6 +300,7 @@
       <method v="2" />
     </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="dev" />
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
       <method v="2">
@@ -347,7 +322,7 @@
       </method>
     </configuration>
     <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ACTIVE_PROFILES" value="local" />
+      <option name="ACTIVE_PROFILES" value="dev" />
       <additionalParameters>
         <param>
           <option name="enabled" value="true" />
@@ -376,6 +351,7 @@
       </method>
     </configuration>
     <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="dev" />
       <module name="user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.userservice.UserServiceApplication" />
       <method v="2">
@@ -421,19 +397,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="e-store-eureka-service" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose-with-docker-file.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -447,10 +410,18 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="zipkin/docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker/zipkin/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Docker.zipkin/docker-compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.config-server.config-server: Compose Deployment" />
       <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
       <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
       <item itemvalue="Maven.order-service [package]" />
       <item itemvalue="Maven.payment-service [package]" />
@@ -466,11 +437,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.zipkin/docker-compose.yaml: Compose Deployment" />
         <item itemvalue="Docker.config-server.config-server: Compose Deployment" />
         <item itemvalue="Shell Script.jar-builder.sh" />
         <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-user-service: Compose Deployment" />
         <item itemvalue="Docker.docker-compose-with-docker-file.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose-with-docker-file.yml.e-store-eureka-service: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -508,6 +479,7 @@
       <workItem from="1690034261424" duration="2993000" />
       <workItem from="1690037606272" duration="6588000" />
       <workItem from="1690120751066" duration="7773000" />
+      <workItem from="1691839195556" duration="7729000" />
     </task>
     <task id="LOCAL-00001" summary="created all services and fully completed the user-service">
       <created>1684603974411</created>
@@ -705,6 +677,16 @@
           <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TestController.java</url>
           <line>32</line>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-service/src/main/java/com/example/orderservice/controller/TraceTestController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/example/userservice/controller/UserController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

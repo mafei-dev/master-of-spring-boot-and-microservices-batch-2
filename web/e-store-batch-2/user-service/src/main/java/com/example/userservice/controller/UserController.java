@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -25,7 +27,17 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public UserViewModal.UserViewResponse getUserByName(@RequestParam("username") String username) throws UserNotFoundException {
+    public UserViewModal.UserViewResponse getUserByName(
+            @RequestParam("username") String username,
+            HttpServletRequest request
+    ) throws UserNotFoundException {
+        Enumeration<String> headerNames = request.getHeaderNames();
+
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            log.debug("{}:{}",headerName,request.getHeader(headerName));
+        }
+
         log.debug("username : {}", username);
         UserViewDTO.UserViewResponse userDetail = this.userService.getUserDetails(username);
         return UserViewModal.UserViewResponse.builder()

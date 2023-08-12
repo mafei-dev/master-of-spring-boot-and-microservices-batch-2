@@ -1,0 +1,7 @@
+version: '3'
+services:
+  config-server:
+    container_name: zipkin-server
+    image: openzipkin/zipkin:latest
+    ports:
+      - "9411:9411"
